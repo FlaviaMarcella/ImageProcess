@@ -19,6 +19,7 @@ int ajustar_brilho(TMatriz entrada, TMatriz saida, int linha, int coluna, int *t
 int imagem_negativa (TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
 int imagem_binarizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida, int grau);
 int imagem_iconizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
+int imagem_ruido(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
 
 #endif /* IMAGEM_H */
 

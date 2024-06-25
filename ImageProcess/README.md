@@ -13,5 +13,5 @@ As operações que devem ser feitas são:
  - encontrar a imagem negativa; *
  - binarizar a imagem por um fator informado pelo usuário; *
  - iconizar a imagem, ou seja, reduzir a imagem de entrada para uma imagem de 64 x 64 pixels; *
- - criar ruídos na imagem;
+ - criar ruídos na imagem; *
  - aplicar um filtro para suavizar a imagem, escolha entre linear (escolha uma máscara) ou não-linear.

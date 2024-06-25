@@ -238,6 +238,18 @@ int main() {
                 
                 break;
             case 6:
+                
+                cout << "\n\t Selecionado: Imagem com ruído" << endl;
+
+                if (imagem_ruido(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
+                    salvaArquivo("imagemRuido.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    cout << "\n\t Imagem criada com sucesso!" << endl;
+                } else {
+                    cout << "\n\t Erro na criação da imagem!" << endl;
+                }
+
+                lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+                
                 break;
             default:
                 cout << "\n\t Opção inválida..." << endl;
