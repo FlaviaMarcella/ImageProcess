@@ -15,6 +15,7 @@
 
 typedef int TMatriz[1024][1024]; 
 
+int ajustar_brilho(TMatriz entrada, TMatriz saida, int linha, int coluna, int *tomCinzaSaida, float modifica, bool clarear);
 
 #endif /* IMAGEM_H */
 

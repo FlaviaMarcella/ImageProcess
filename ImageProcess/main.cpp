@@ -59,12 +59,40 @@ int lerArquivo(string nameFile, TMatriz imagem, int *tomCinza, int *coluna, int 
 
 }
 
+int salvaArquivo(string nameFile, TMatriz imagem, int tomCinza, int coluna, int linha) {
+
+    ofstream arquivo(nameFile);
+
+    if (!arquivo.is_open()) {
+        return 1;
+    }
+
+    arquivo << "P2" << endl;
+
+    arquivo << coluna << " " << linha << endl;
+    arquivo << tomCinza << endl;
+
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+
+            arquivo << imagem[i][j] << " ";
+
+        }
+        arquivo << "\n";
+    }
+
+    arquivo.close();
+
+    return 0;
+}
+
 int main() {
 
     int opcao = -1, tomCinza = 0, linha = 0, coluna = 0;
+    int mod = -1, tomCinzaSaida = 0;
+    double modifica = 0;
     string inputFile;
     TMatriz imagem;
-    TMatriz saida;
 
     do {
 
@@ -82,15 +110,79 @@ int main() {
 
                 cout << "\n\t Insira o nome do arquivo (.txt): \n\t | ";
                 cin >> inputFile;
-
+                
                 if (lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha) == 0) {
-                    cout << "\n\t Arquivo lido com sucesso!"<<endl;
+                    cout << "\n\t Arquivo lido com sucesso!" << endl;
                 } else {
-                    cout << "\n\t Erro na leitura do arquivo!"<<endl;
+                    cout << "\n\t Erro na leitura do arquivo!" << endl;
                 }
 
                 break;
             case 2:
+
+                cout << "\n\t Selecionado: Tratamento de Imagem" << endl;
+                cout << "\n\t   Você deseja: ";
+                cout << "\n\t\t 0 - Voltar";
+                cout << "\n\t\t 1 - Clarear";
+                cout << "\n\t\t 2 - Escurecer" << endl;
+
+                cout << "\n\t Opção: ";
+                cin >> mod;
+
+                switch (mod) {
+
+                    case 1:
+                        
+                        cout << "\n\t Opção selecionada: Clarear imagem" << endl;
+                        cout << "\n\t Quanto voce deseja, clarear (0.0%)? ";
+                        cout << "\n\t | ";
+                        cin >> modifica;
+
+                        if (modifica > 100 || modifica < 0) {
+                            cout << "\n\t Valor inválido, insira novamente..." << endl;
+                            cout << "\n\t | ";
+                            cin >> modifica;
+                        }
+
+                        if ( ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, true) == 0) {
+                            cout << "\n\t Imagem alterada com sucesso!" << endl;
+                        } else {
+                            cout << "\n\t Erro ao ajustar imagem!" << endl;
+                        }
+
+                        salvaArquivo("imagemClareada.pgm", imagem, tomCinzaSaida, coluna, linha);
+                        lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+
+                        break;
+                    case 2:
+
+                        cout << "\n\t Opção selecionada: Escurecer imagem";
+                        cout << "\n\t Quanto voce deseja, Escurecer (0.0%)? ";
+                        cout << "\n\t | ";
+                        cin >> modifica;
+
+                        if (modifica > 100 || modifica < 0) {
+                            cout << "\n\t Valor inválido, insira novamente..." << endl;
+                            cout << "\n\t | ";
+                            cin >> modifica;
+                        }
+                        
+                        if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, false) == 0) {
+                            cout << "\n\t Imagem alterada com sucesso!" << endl;
+                        } else {
+                            cout << "\n\t Erro ao ajustar imagem!" << endl;
+                        }
+
+
+                        salvaArquivo("imagemEscurecida.pgm", imagem, tomCinzaSaida, coluna, linha);
+                        lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+
+                        break;
+                    default:
+                        cout << "\n\t Opção inválida!";
+                        break;
+
+                }
                 break;
             case 3:
                 break;
@@ -101,7 +193,7 @@ int main() {
             case 6:
                 break;
             default:
-                cout << "\n\t Opção inválida..."<<endl;
+                cout << "\n\t Opção inválida..." << endl;
                 break;
         }
     } while (opcao != 0);
