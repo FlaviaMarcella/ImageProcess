@@ -16,6 +16,7 @@
 typedef int TMatriz[1024][1024]; 
 
 int ajustar_brilho(TMatriz entrada, TMatriz saida, int linha, int coluna, int *tomCinzaSaida, float modifica, bool clarear);
+int imagem_negativa (TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
 
 #endif /* IMAGEM_H */
 

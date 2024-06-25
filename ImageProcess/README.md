@@ -9,8 +9,8 @@ Requisitos:
         *para todas as operações os valores de tons de cinza dos pixels devem estar entre zero e o valor máximo;
 
 As operações que devem ser feitas são:
- - escurecer ou clarear imagem por um fator informado pelo usuário;
- - encontrar a imagem negativa;
+ - escurecer ou clarear imagem por um fator informado pelo usuário; *
+ - encontrar a imagem negativa; *
  - binarizar a imagem por um fator informado pelo usuário;
  - iconizar a imagem, ou seja, reduzir a imagem de entrada para uma imagem de 64 x 64 pixels;
  - criar ruídos na imagem;

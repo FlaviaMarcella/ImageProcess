@@ -92,7 +92,7 @@ int main() {
     int mod = -1, tomCinzaSaida = 0;
     double modifica = 0;
     string inputFile;
-    TMatriz imagem;
+    TMatriz imagem, saida;
 
     do {
 
@@ -111,12 +111,12 @@ int main() {
                 cout << "\n\t Insira o nome do arquivo (.txt): \n\t | ";
                 cin >> inputFile;
                 
-                if (lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha) == 0) {
+                if (lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha) == 0){
                     cout << "\n\t Arquivo lido com sucesso!" << endl;
                 } else {
                     cout << "\n\t Erro na leitura do arquivo!" << endl;
                 }
-
+                
                 break;
             case 2:
 
@@ -145,12 +145,12 @@ int main() {
                         }
 
                         if ( ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, true) == 0) {
+                            salvaArquivo("imagemClareada.pgm", imagem, tomCinzaSaida, coluna, linha);
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
                         } else {
                             cout << "\n\t Erro ao ajustar imagem!" << endl;
                         }
 
-                        salvaArquivo("imagemClareada.pgm", imagem, tomCinzaSaida, coluna, linha);
                         lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
 
                         break;
@@ -168,13 +168,13 @@ int main() {
                         }
                         
                         if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, false) == 0) {
+                            salvaArquivo("imagemEscurecida.pgm", imagem, tomCinzaSaida, coluna, linha);
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
                         } else {
                             cout << "\n\t Erro ao ajustar imagem!" << endl;
                         }
 
 
-                        salvaArquivo("imagemEscurecida.pgm", imagem, tomCinzaSaida, coluna, linha);
                         lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
 
                         break;
@@ -183,8 +183,21 @@ int main() {
                         break;
 
                 }
+                
                 break;
             case 3:
+                
+                cout << "\n\t Selecionado: Imagem Negativa" << endl;
+                
+                if (imagem_negativa(imagem, imagem, linha, coluna,tomCinza, &tomCinzaSaida) == 0){
+                    salvaArquivo("imagemNegativa.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    cout << "\n\t Imagem criada com sucesso!" << endl;
+                } else {
+                    cout << "\n\t Erro na criação da imagem!" << endl;
+                }
+                
+                lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+                
                 break;
             case 4:
                 break;

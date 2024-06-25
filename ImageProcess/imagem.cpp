@@ -68,40 +68,24 @@ int ajustar_brilho(TMatriz entrada, TMatriz saida, int linha, int coluna, int *t
     
 }
 
-/*int ajustar_brilho(TMatriz entrada, TMatriz saida, int linha, int coluna, double modifica) {
-    
-    //static_cast garante que a multiplicação e divisão vai retornar um número inteiro, uma vez que estamos trabalhando com
-    //pixeis e estes devem ser inteiros.
-    
-        
-        for (int i = 0; i < linha; i++) {
-            for (int j = 0, pixel = 0; j < coluna; j++) {
-                
-                pixel = entrada[i][j] + (entrada[i][j] * modifica / 100);
-                
-                if (pixel > 255) {
-                    pixel = 255;
-                }
-                
-                saida[i][j] = pixel;
-                
-            }
-        }
-    
-    return 0;
-    
-}*/
+int imagem_negativa (TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida) {
 
-int brilho (TMatriz imagem, int coluna, int linha, TMatriz saida) {
-
+    *tomCinzaSaida = tomCinza;
+    
     for (int i = 0; i < linha; i++) {
-        for (int j = 0; j < coluna; j++) {
+        for (int j = 0, pixel = 0; j < coluna; j++) {
 
-            saida[i][j] = imagem[i][j] + 1;
-            //saida[i][j] = imagem[i][j] + (imagem[i][j] * mod/100);
+            pixel = 255 - entrada[i][j];
+            
+            saida[i][j] = pixel;
+            
+            if(*tomCinzaSaida < pixel){
+                *tomCinzaSaida = pixel;
+            }
 
         }
     }
+    
 
     return 0;
 }
