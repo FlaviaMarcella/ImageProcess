@@ -224,6 +224,18 @@ int main() {
 
                 break;
             case 5:
+                
+                cout << "\n\t Selecionado: Imagem Iconizada 64x64" << endl;
+
+                if (imagem_iconizada(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
+                    salvaArquivo("imagemIconizada.pgm", imagem, tomCinzaSaida, 64, 64);
+                    cout << "\n\t Imagem criada com sucesso!" << endl;
+                } else {
+                    cout << "\n\t Erro na criação da imagem!" << endl;
+                }
+
+                lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+                
                 break;
             case 6:
                 break;

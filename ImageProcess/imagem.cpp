@@ -107,3 +107,36 @@ int imagem_binarizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int
     
     return 0;
 }
+
+int imagem_iconizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida){
+
+    int icon[64][64];
+    
+    double escala_x = linha/64.0;
+    double escala_y = coluna/64.0;
+    
+    *tomCinzaSaida = tomCinza;
+    
+    for (int i = 0; i < 64; i++) {
+        for (int j = 0; j < 64; j++) {
+            //saida[i][j] = entrada[static_cast<int>(i*escala_x)][static_cast<int>(j*escala_y)];
+            
+            icon[i][j] = entrada[static_cast<int>(i*escala_x)][static_cast<int>(j*escala_y)];
+            
+            if(*tomCinzaSaida < icon[i][j]){
+                *tomCinzaSaida = icon[i][j];
+            }
+            
+        }
+    }
+    
+    for (int i = 0; i < linha; i++) {
+        for (int j = 0; j < coluna; j++) {
+            saida[i][j] = 0;
+            saida[i][j] = icon[i][j];
+        }
+    }
+    
+    return 0;
+
+}
