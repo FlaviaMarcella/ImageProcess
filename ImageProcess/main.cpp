@@ -110,13 +110,13 @@ int main() {
 
                 cout << "\n\t Insira o nome do arquivo (.txt): \n\t | ";
                 cin >> inputFile;
-                
-                if (lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha) == 0){
+
+                if (lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha) == 0) {
                     cout << "\n\t Arquivo lido com sucesso!" << endl;
                 } else {
                     cout << "\n\t Erro na leitura do arquivo!" << endl;
                 }
-                
+
                 break;
             case 2:
 
@@ -132,7 +132,7 @@ int main() {
                 switch (mod) {
 
                     case 1:
-                        
+
                         cout << "\n\t Opção selecionada: Clarear imagem" << endl;
                         cout << "\n\t Quanto voce deseja, clarear (0.0%)? ";
                         cout << "\n\t | ";
@@ -144,7 +144,7 @@ int main() {
                             cin >> modifica;
                         }
 
-                        if ( ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, true) == 0) {
+                        if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, true) == 0) {
                             salvaArquivo("imagemClareada.pgm", imagem, tomCinzaSaida, coluna, linha);
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
                         } else {
@@ -166,7 +166,7 @@ int main() {
                             cout << "\n\t | ";
                             cin >> modifica;
                         }
-                        
+
                         if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, false) == 0) {
                             salvaArquivo("imagemEscurecida.pgm", imagem, tomCinzaSaida, coluna, linha);
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
@@ -183,23 +183,45 @@ int main() {
                         break;
 
                 }
-                
+
                 break;
             case 3:
-                
+
                 cout << "\n\t Selecionado: Imagem Negativa" << endl;
-                
-                if (imagem_negativa(imagem, imagem, linha, coluna,tomCinza, &tomCinzaSaida) == 0){
+
+                if (imagem_negativa(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
                     salvaArquivo("imagemNegativa.pgm", imagem, tomCinzaSaida, coluna, linha);
                     cout << "\n\t Imagem criada com sucesso!" << endl;
                 } else {
                     cout << "\n\t Erro na criação da imagem!" << endl;
                 }
-                
+
                 lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
-                
+
                 break;
             case 4:
+
+                cout << "\n\t Selecionado: Binarizar Imagem" << endl;
+
+                cout << "\n\t Quanto voce deseja, binarizar? ";
+                cout << "\n\t | ";
+                cin >> modifica;
+
+                if (modifica > 255 || modifica < 0) {
+                    cout << "\n\t Valor inválido, insira novamente..." << endl;
+                    cout << "\n\t | ";
+                    cin >> modifica;
+                }
+
+                if (imagem_binarizada(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida, modifica) == 0) {
+                    salvaArquivo("imagemBinarizada.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    cout << "\n\t Imagem criada com sucesso!" << endl;
+                } else {
+                    cout << "\n\t Erro na criação da imagem!" << endl;
+                }
+
+                lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+
                 break;
             case 5:
                 break;

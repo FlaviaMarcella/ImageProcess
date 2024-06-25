@@ -90,5 +90,20 @@ int imagem_negativa (TMatriz entrada, TMatriz saida, int linha, int coluna, int 
     return 0;
 }
 
-
-
+int imagem_binarizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida, int grau) {
+    for (int i = 0; i < linha; ++i) {
+        for (int j = 0; j < coluna; ++j) {
+            
+            if(entrada[i][j] > grau){
+                saida[i][j] = tomCinza;
+            }else{
+                saida[i][j] = 0;
+            }
+            
+        }
+    }
+    
+    *tomCinzaSaida = tomCinza;
+    
+    return 0;
+}
