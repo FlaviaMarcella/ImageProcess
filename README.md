@@ -47,9 +47,9 @@ Este projeto implementa um conjunto de funcionalidades básicas para processamen
 - Escolha a opção correspondente à funcionalidade desejada no menu.
 - Siga as instruções no console para fornecer os parâmetros necessários (como nome do arquivo de imagem).
 
-  ##Observações
- - As imagens devem ser inseridas no diretório ImageProcess/Imagens/
- - Os arquivos alterados, serão salvos no mesmo diretório.
+  ## Observações
+    - As imagens devem ser inseridas no diretório ImageProcess/Imagens/
+    - Os arquivos alterados, serão salvos no mesmo diretório.
 
 ## Contribuições
 
