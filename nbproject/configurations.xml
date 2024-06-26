@@ -28,6 +28,9 @@
       <itemPath>ImageProcess</itemPath>
     </logicalFolder>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>ImageProcess</projectmakefile>
   <confs>
     <conf name="Debug" type="1">

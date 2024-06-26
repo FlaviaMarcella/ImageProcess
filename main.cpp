@@ -10,7 +10,7 @@
  * Created on 24 de junho de 2024, 17:58
  */
 
-/*
+/* Author: Flávia Marcella Gonalves Moreira RA: 2024.1.08.025
  * Projeto: Processamento de Imagens PGM
  * Descrição: Este projeto implementa diversas operações de processamento de imagem em arquivos PGM,
  *            incluindo ajuste de brilho, criação de imagem negativa, binarização, iconização, adição de ruído,
@@ -182,7 +182,7 @@ int main() {
                         }
 
                         if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, true) == 0) {
-                            salvaArquivo(name +"_imagemClareada", imagem, tomCinzaSaida, coluna, linha);
+                            salvaArquivo(name +"_Clareada", imagem, tomCinzaSaida, coluna, linha);
                             lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
 
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
@@ -207,7 +207,7 @@ int main() {
                         }
 
                         if (ajustar_brilho(imagem, imagem, linha, coluna, &tomCinzaSaida, modifica, false) == 0) {
-                            salvaArquivo(name +"_imagemEscurecida.pgm", imagem, tomCinzaSaida, coluna, linha);
+                            salvaArquivo(name +"_Escurecida", imagem, tomCinzaSaida, coluna, linha);
                             lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                             cout << "\n\t Imagem alterada com sucesso!" << endl;
                         } else {
@@ -227,7 +227,7 @@ int main() {
                 cout << "\n\t Selecionado: Imagem Negativa" << endl;
 
                 if (imagem_negativa(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
-                    salvaArquivo(name +"_imagemNegativa.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    salvaArquivo(name +"_Negativa", imagem, tomCinzaSaida, coluna, linha);
                     lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                     cout << "\n\t Imagem criada com sucesso!" << endl;
                 } else {
@@ -252,7 +252,7 @@ int main() {
                 }
 
                 if (imagem_binarizada(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida, modifica) == 0) {
-                    salvaArquivo(name +"_imagemBinarizada.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    salvaArquivo(name +"_Binarizada", imagem, tomCinzaSaida, coluna, linha);
                     lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                     cout << "\n\t Imagem criada com sucesso!" << endl;
                 } else {
@@ -266,7 +266,7 @@ int main() {
                 cout << "\n\t Selecionado: Imagem Iconizada 64x64" << endl;
 
                 if (imagem_iconizada(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
-                    salvaArquivo(name +"_imagemIconizada.pgm", imagem, tomCinzaSaida, 64, 64);
+                    salvaArquivo(name +"_Iconizada", imagem, tomCinzaSaida, 64, 64);
                     lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                     cout << "\n\t Imagem criada com sucesso!" << endl;
                 } else {
@@ -280,7 +280,7 @@ int main() {
                 cout << "\n\t Selecionado: Imagem com ruído" << endl;
 
                 if (imagem_ruido(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
-                    salvaArquivo(name +"_imagemRuido.pgm", imagem, tomCinzaSaida, coluna, linha);
+                    salvaArquivo(name +"_Ruido", imagem, tomCinzaSaida, coluna, linha);
                     lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                     cout << "\n\t Imagem criada com sucesso!" << endl;
                 } else {
@@ -309,7 +309,7 @@ int main() {
                         cout << "\n\t Opção selecionada: Filtro Linear" << endl;
 
                         if (filtro_linear(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
-                            salvaArquivo(name +"_imagemFiltroLinear.pgm", imagem, tomCinzaSaida, coluna, linha);
+                            salvaArquivo(name +"_FiltroLinear", imagem, tomCinzaSaida, coluna, linha);
                             lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                             cout << "\n\t Imagem criada com sucesso!" << endl;
                         } else {
@@ -324,7 +324,7 @@ int main() {
                         cout << "\n\t Opção selecionada: Filtro Não-Linear" << endl;
 
                         if (filtro_naoLinear(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
-                            salvaArquivo(name +"_imagemFiltroNaoLinear.pgm", imagem, tomCinzaSaida, coluna, linha);
+                            salvaArquivo(name +"_FiltroNaoLinear", imagem, tomCinzaSaida, coluna, linha);
                             lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
                             cout << "\n\t Imagem criada com sucesso!" << endl;
                         } else {

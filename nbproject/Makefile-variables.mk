@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=imageprocess
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/imageprocess
+CND_ARTIFACT_NAME_Debug=projeto_imagem
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/projeto_imagem
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=imageprocess.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/imageprocess.tar
+CND_PACKAGE_NAME_Debug=projetoimagem.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/projetoimagem.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=imageprocess
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/imageprocess
+CND_ARTIFACT_NAME_Release=projeto_imagem
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/projeto_imagem
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=imageprocess.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/imageprocess.tar
+CND_PACKAGE_NAME_Release=projetoimagem.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/projetoimagem.tar
 #
 # include compiler specific variables
 #

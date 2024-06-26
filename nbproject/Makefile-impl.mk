@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ImageProcess
+PROJECTNAME=Projeto_Imagem
 
 # Active Configuration
 DEFAULTCONF=Debug
