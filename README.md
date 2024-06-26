@@ -24,7 +24,7 @@ Este projeto implementa um conjunto de funcionalidades básicas para processamen
 1. Clone o repositório para sua máquina local:
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/FlaviaMarcella/ImageProcess.git
    
 2. Navegue até o diretório do projeto:
 
@@ -39,7 +39,7 @@ Este projeto implementa um conjunto de funcionalidades básicas para processamen
 4. Execute o programa
 
    ```bash
-   ./main
+   ./ImageProcess
 
 ## Exemplo de uso
 
