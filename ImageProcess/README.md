@@ -1,17 +1,56 @@
-# ImageProcess
+# Projeto de Processamento de Imagens
 
-Requisitos: 
- - ler uma imagem de entrada criada pelos autores em formato PGM;
- - criar um menu de operações que serão realizadas sobre a imagem de entrada indicada;
-        *cada operação deve estar em uma função C/C++;
-        *os comandos cin e cout só podem ser utilizados na função main;
- - escrever um arquivo-texto de saída para cada operação realizada;
-        *para todas as operações os valores de tons de cinza dos pixels devem estar entre zero e o valor máximo;
+Este projeto implementa um conjunto de funcionalidades básicas para processamento de imagens no formato PGM (Portable Gray Map). Ele inclui operações como ajuste de brilho, geração de imagem negativa, binarização, iconização, aplicação de ruído e aplicação de filtros lineares e não-lineares.
 
-As operações que devem ser feitas são:
- - escurecer ou clarear imagem por um fator informado pelo usuário; *
- - encontrar a imagem negativa; *
- - binarizar a imagem por um fator informado pelo usuário; *
- - iconizar a imagem, ou seja, reduzir a imagem de entrada para uma imagem de 64 x 64 pixels; *
- - criar ruídos na imagem; *
- - aplicar um filtro para suavizar a imagem, escolha entre linear (escolha uma máscara) ou não-linear.
+## Funcionalidades Implementadas
+
+- **Ler arquivo PGM:** Permite ler uma imagem no formato PGM de um arquivo `.pgm` e carregar seus dados em uma matriz.
+- **Ajustar brilho:** Clareia ou escurece a imagem com base em um valor percentual.
+- **Imagem negativa:** Gera a versão negativa da imagem.
+- **Binarizar imagem:** Converte a imagem para uma versão binária com base em um valor de limiar.
+- **Iconizar imagem:** Reduz a imagem para um tamanho de 64x64 pixels.
+- **Criar ruído na imagem:** Adiciona ruído aleatório à imagem.
+- **Aplicar filtro linear:** Aplica um filtro de suavização linear à imagem.
+- **Aplicar filtro não-linear:** Aplica um filtro de mediana não-linear à imagem.
+
+## Pré-requisitos
+
+- Compilador C++ compatível com C++11 ou superior.
+- Biblioteca padrão do C++.
+- Imagens no formato PGM para teste.
+
+## Como compilar e executar
+
+1. Clone o repositório para sua máquina local:
+
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   
+2. Navegue até o diretório do projeto:
+
+   ```bash
+   cd ImageProcess
+   
+3. Compile o projeto
+
+   ```bash
+   g++ -std=c++11 -o main main.cpp imagem.cpp
+   
+4. Execute o programa
+
+   ```bash
+   ./main
+
+## Exemplo de uso
+
+- Execute o programa conforme instruções acima.
+- Escolha a opção correspondente à funcionalidade desejada no menu.
+- Siga as instruções no console para fornecer os parâmetros necessários (como nome do arquivo de imagem).
+
+  ##Observações
+ - As imagens devem ser inseridas no diretório ImageProcess/Imagens/
+ - Os arquivos alterados, serão salvos no mesmo diretório.
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você deseja melhorar este projeto, sinta-se à vontade para enviar pull requests.
