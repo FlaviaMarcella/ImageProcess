@@ -20,6 +20,9 @@ int imagem_negativa (TMatriz entrada, TMatriz saida, int linha, int coluna, int 
 int imagem_binarizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida, int grau);
 int imagem_iconizada(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
 int imagem_ruido(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
+int filtro_linear(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
+int filtro_naoLinear(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida);
+void bubbleSort(int v[], int tam);
 
 #endif /* IMAGEM_H */
 

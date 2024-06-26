@@ -92,7 +92,7 @@ int main() {
     int mod = -1, tomCinzaSaida = 0;
     double modifica = 0;
     string inputFile;
-    TMatriz imagem, saida;
+    TMatriz imagem;
 
     do {
 
@@ -224,7 +224,7 @@ int main() {
 
                 break;
             case 5:
-                
+
                 cout << "\n\t Selecionado: Imagem Iconizada 64x64" << endl;
 
                 if (imagem_iconizada(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
@@ -235,10 +235,10 @@ int main() {
                 }
 
                 lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
-                
+
                 break;
             case 6:
-                
+
                 cout << "\n\t Selecionado: Imagem com ruído" << endl;
 
                 if (imagem_ruido(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
@@ -249,8 +249,58 @@ int main() {
                 }
 
                 lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
-                
+
                 break;
+
+            case 7:
+
+                cout << "\n\t Selecionado: Filtro" << endl;
+                cout << "\n\t   Você deseja: ";
+                cout << "\n\t\t 0 - Voltar";
+                cout << "\n\t\t 1 - Filtro linear";
+                cout << "\n\t\t 2 - Filtro não-linear" << endl;
+
+                cout << "\n\t Opção: ";
+                cin >> mod;
+
+                switch (mod) {
+
+                    case 1:
+
+                        cout << "\n\t Opção selecionada: Filtro Linear" << endl;
+
+                        if (filtro_linear(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
+                            salvaArquivo("imagemFiltroLinear.pgm", imagem, tomCinzaSaida, coluna, linha);
+                            cout << "\n\t Imagem criada com sucesso!" << endl;
+                        } else {
+                            cout << "\n\t Erro na criação da imagem!" << endl;
+                        }
+
+                        lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+
+                        break;
+                    case 2:
+
+                        cout << "\n\t Opção selecionada: Filtro Não-Linear" << endl;
+
+                        if (filtro_naoLinear(imagem, imagem, linha, coluna, tomCinza, &tomCinzaSaida) == 0) {
+                            salvaArquivo("imagemFiltroNaoLinear.pgm", imagem, tomCinzaSaida, coluna, linha);
+                            cout << "\n\t Imagem criada com sucesso!" << endl;
+                        } else {
+                            cout << "\n\t Erro na criação da imagem!" << endl;
+                        }
+
+                        lerArquivo(inputFile, imagem, &tomCinza, &coluna, &linha);
+
+                        break;
+                    default:
+                        cout << "\n\t Opção inválida!";
+                        break;
+
+                }
+
+                break;
+
             default:
                 cout << "\n\t Opção inválida..." << endl;
                 break;

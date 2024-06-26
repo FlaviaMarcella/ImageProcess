@@ -166,3 +166,78 @@ int imagem_ruido(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomC
     return 0;
 
 }
+
+int filtro_linear(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida) {
+    
+    int tam = 3;
+    int filtro_soma = 9;
+    *tomCinzaSaida = tomCinza;
+
+    int filtro[tam][tam] = {
+        {1, 1, 1},
+        {1, 1, 1},
+        {1, 1, 1}
+    };
+
+    for (int i = 1; i < linha - 1; ++i) {
+        for (int j = 1; j < coluna - 1; ++j) {
+            
+            int sum = 0;
+            
+            for (int k = 0; k < tam; ++k) {
+                for (int l = 0; l < tam; ++l) {
+                    sum += entrada[i + k - 1][j + l - 1] * filtro[k][l];
+                }
+            }
+            
+            saida[i][j] = sum / filtro_soma;
+            if (*tomCinzaSaida < saida[i][j]) *tomCinzaSaida = saida[i][j];
+        }
+    }
+    
+    return 0;
+}
+
+void bubbleSort(int v[], int tam) {
+
+    for (int i = tam; i > 0; i--) {
+
+        for (int k = 0; k < i - 1; k++) {
+            if (v[k] > v[k + 1]) {
+                int aux = v[k];
+                v[k] = v[k + 1];
+                v[k + 1] = aux;
+            }
+        }
+
+    }
+
+}
+
+int filtro_naoLinear(TMatriz entrada, TMatriz saida, int linha, int coluna, int tomCinza, int *tomCinzaSaida){
+    
+    int tamanhoFiltro = 3;
+    int deslocamento = tamanhoFiltro / 2;
+    *tomCinzaSaida = tomCinza;
+
+    for (int i = deslocamento; i < linha - deslocamento; i++) {
+        for (int j = deslocamento; j < coluna - deslocamento; j++) {
+            
+            int vizinhanca[9];
+            int v = 0;
+            
+            for (int k = -deslocamento; k <= deslocamento; k++) {
+                for (int l = -deslocamento; l <= deslocamento; l++) {
+                    vizinhanca[v++] = entrada[i + k][j + l];
+                }
+            }
+            bubbleSort(vizinhanca, 9);
+            saida[i][j] = vizinhanca[4]; // Mediana da vizinhança de 3x3
+            if (*tomCinzaSaida < saida[i][j]) *tomCinzaSaida = saida[i][j];
+        }
+    }
+    
+    return 0;
+    
+}
+
